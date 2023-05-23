@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "Google Meet Transcript Translator",
+    "version": "1.0",
+    "description": "Translates Google Meet live transcriptions.",
+    "permissions": ["activeTab", "storage", "<all_urls>"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://meet.google.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    }
+  }
+  
