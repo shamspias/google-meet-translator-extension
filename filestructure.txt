@@ -1,0 +1,8 @@
+Google_Meet_Translator_Extension/
+|-- manifest.json
+|-- background.js
+|-- content.js
+|-- popup.html
+|-- popup.js
+|-- icon.png
+|-- README.md
