@@ -17,10 +17,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 function translateText(text, targetLanguage) {
     return new Promise((resolve, reject) => {
-        // Replace the following code with your API call
-        fetch('https://translation-api-url', {
+        fetch('https://translation.googleapis.com/language/translate/v2', {
             method: 'POST',
-            body: JSON.stringify({ text: text, targetLanguage: targetLanguage }),
+            body: JSON.stringify({
+                q: text,
+                target: targetLanguage,
+                key: 'YOUR_API_KEY'  // Replace 'YOUR_API_KEY' with your actual API Key
+            }),
             headers: { 'Content-Type': 'application/json' },
         })
         .then(response => {
@@ -30,11 +33,12 @@ function translateText(text, targetLanguage) {
             return response.json();
         })
         .then(data => {
-            // Assuming the translated text is in data.translation
-            resolve(data.translation);
+            // Extract the translated text from the response
+            resolve(data.data.translations[0].translatedText);
         })
         .catch(err => {
             reject(err);
         });
     });
 }
+
