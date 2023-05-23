@@ -1,0 +1,21 @@
+# .gitignore
+
+# Node modules
+/node_modules
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# OS Files
+.DS_Store
+Thumbs.db
